@@ -2,7 +2,7 @@
 #define WIN_ALGO_H
 
 int win(char matrix[22][22]);
-int black_has_path(char matrix[22][22]);
-int red_has_path(char matrix[22][22]);
+int black_has_path(char matrix[22][22],int visited_matrix_black[22][22]);
+int red_has_path(char matrix[22][22],int visited_matrix_red[22][22]);
 
 #endif
