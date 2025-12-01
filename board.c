@@ -24,24 +24,20 @@ void printboard(char matrix[22][22])
     printf("   ");
     for (int i = 0; i < 22; i++)
     {
-        if (i + 1 > 9)
-            printf("%d ", i + 1);
-        else
-            printf("%d  ", i + 1);
+        printf("%02d  ", i + 1);
     }
     printf("\n");
 
     for (int i = 0; i < 22; i++)
     {
-        if (i + 1 > 9)
-            printf("%d ", i + 1);
-        else
-            printf("%d  ", i + 1);
+        
+        printf("%02d  ", i + 1);
 
         for (int j = 0; j < 22; j++)
         {
-            printf("%c  ", matrix[i][j]);
+            printf("%c   ", matrix[i][j]);
         }
         printf("\n");
     }
+    printf("\n\n current link count : %d \n\n",link_count);
 }

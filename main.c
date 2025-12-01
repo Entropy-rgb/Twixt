@@ -43,7 +43,7 @@ int main()
         rungame(matrix, player1, player2);
         printf("===================Thanks for Playing========================\n");
         printf("To Play The Game Again press 'r', else to quit Press 'q'\n");
-        scanf("%c", game);
+        scanf("  %c", &game);
         if (game == 'r')
         {
             continue;
