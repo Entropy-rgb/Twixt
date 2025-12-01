@@ -1,3 +1,4 @@
-input.txt
+*.txt
 twixt
 twixt.exe
+.vscode/
