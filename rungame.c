@@ -43,7 +43,7 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
             if(prev_move_validity == 0){
                printf("%sThe move you are trying to play is invalid, please try again.%s\n",RED,RESET) ;
             }
-            printf("%sIts RED(R)'s turn, please input the coordinates you would like to mark ur pin on: %s",YELLOW,WHITE);
+            printf("%sIts RED(R)'s turn, please input the coordinates you would like to mark ur pin on: %s",PINK,WHITE);
             scanf("%d %d",&r_x,&r_y);
             r_x--;
             r_y--;
@@ -61,7 +61,7 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
             if(prev_move_validity == 0){
            printf("%sThe move you are trying to play is invalid, please try again.%s\n",RED,RESET) ;
          }
-            printf("%sIts BLACK(B)'s turn, please input the coordinates you would like to mark ur pin on: %s",YELLOW,WHITE);
+            printf("%sIts BLACK(B)'s turn, please input the coordinates you would like to mark ur pin on: %s",CYAN,WHITE);
             scanf("%d %d",&b_x,&b_y);
             printf("%s",RESET);
             b_x--;
