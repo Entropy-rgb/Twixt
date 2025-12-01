@@ -19,7 +19,7 @@ int check_intersection(link l, char matrix[22][22])
         float c2 = (float)l.a.y - (m2*((float)l.a.x));
         float val1 = (((float)l.a.y) - (m1 * ((float)l.a.x)) - c1)*(((float)l.b.y) - (m1 * ((float)l.b.x)) - c1);
         float val2 = (((float)links[cl].a.y) - (m2 * ((float)links[cl].a.x)) - c2)*(((float)links[cl].b.y) - (m2 * ((float)links[cl].b.x)) - c2);
-        if(val1 > 0 || val2 > 0){
+        if(val1 >= 0 || val2 >= 0){
             cl++;
             // count++;
         }else{
