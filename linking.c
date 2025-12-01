@@ -8,7 +8,7 @@
 #include "rungame.h"
 #include "win_algo.h"
 
-int check_intersection(link l, char matrix[22][22])
+int check_intersection(link l, char matrix[n][n])
 {
     int cl = 0;
     // int count = 0;
@@ -29,13 +29,13 @@ int check_intersection(link l, char matrix[22][22])
     return 0;
 }
 
-int make_link_if_Possible(char matrix[22][22],int x, int y, int player )
+int make_link_if_Possible(char matrix[n][n],int x, int y, int player )
 {
     char color = (player == 1 ? 'R' : 'B');
     for(int k = 0 ; k < 8 ; k++){
         int nx = x + knight_moves[k][0];
         int ny = y + knight_moves[k][1];
-        if(nx < 0 || ny < 0|| nx >= 22 || ny >= 22) continue;
+        if(nx < 0 || ny < 0|| nx >= n || ny >= n) continue;
         if(matrix[nx][ny]==color){
             link newlink = {{x,y},{nx,ny}};
             if(check_intersection(newlink, matrix)==0){

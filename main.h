@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define n 24
+
 typedef struct{
     int x;
     int y;
@@ -20,5 +22,7 @@ extern char* RED ;
 extern char* GREEN;
 extern char* WHITE;
 extern char* PINK;
+extern char* BLUE;
+extern char* CYAN;
 
 #endif
