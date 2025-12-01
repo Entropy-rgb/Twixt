@@ -8,6 +8,23 @@
 #include "rungame.h"
 #include "win_algo.h"
 
+int get_two_ints(int *x, int *y)
+{
+    int result = scanf("%d %d", x, y);
+
+    if (result == 2)
+        return 1;
+
+    if (result == EOF)
+        return -1;
+
+
+    int ch;
+    while ((ch = getchar()) != '\n' && ch != EOF);
+
+    return 0;
+}
+
 int move_validity(char matrix[n][n], int x, int y , int player){
     if(x == 0 && y == 0){
         return 0;
@@ -44,7 +61,8 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
                printf("%sThe move you are trying to play is invalid, please try again.%s\n",RED,RESET) ;
             }
             printf("%sIts RED(R)'s turn, please input the coordinates you would like to mark ur pin on: %s",PINK,WHITE);
-            scanf("%d %d",&r_x,&r_y);
+            int result = get_two_ints(&r_x,&r_y);
+            if(result!=1) continue;
             r_x--;
             r_y--;
             prev_move_validity = move_validity(matrix,r_x, r_y ,1);
@@ -62,12 +80,13 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
            printf("%sThe move you are trying to play is invalid, please try again.%s\n",RED,RESET) ;
          }
             printf("%sIts BLACK(B)'s turn, please input the coordinates you would like to mark ur pin on: %s",CYAN,WHITE);
-            scanf("%d %d",&b_x,&b_y);
+            int result = get_two_ints(&b_x,&b_y);
+            if(result!=1) continue;
             printf("%s",RESET);
             b_x--;
             b_y--;
             prev_move_validity = move_validity(matrix,b_x, b_y ,2);
-        } while (move_validity(matrix,b_x, b_y ,2) == 0);
+        } while (prev_move_validity == 0);
         matrix[b_x][b_y] = 'B';
         make_link_if_Possible(matrix,b_x,b_y,2);
     }
