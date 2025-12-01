@@ -23,14 +23,14 @@ int traverse_red(char matrix[n][n] , int visited_matrix[n][n], int x , int y){
                 if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && ny==links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && ny == links[j].a.y))){
                     has_link = 1;
                     // printf("\n\nLINK COORDS x = %d , y = %d\n\n",nx,ny);
-                    break;
+                    // break;
                 }
+                if(has_link){
+                    if(traverse_red(matrix,visited_matrix,nx,ny)){
+                       return 1;
+                    }
             }
-            if(has_link){
-                if(traverse_red(matrix,visited_matrix,nx,ny)){
-                    return 1;
-                }
-            }
+            }            
         }
     }
     return 0;
@@ -43,28 +43,25 @@ int traverse_black(char matrix[n][n] , int visited_matrix[n][n], int x , int y){
     if(y == n-1){
         return 1;
     }
-    else
-    {
-        for(int i = 0 ; i < 8 ; i++){
-            int nx = x + knight_moves[i][0];
-            int ny = y + knight_moves[i][1];
-            if(nx >= 0 && ny >= 0 && nx < n && ny < n && visited_matrix[nx][ny] == 0 && matrix[nx][ny]=='B'){
-                int has_link = 0;
-                for(int j = 0 ; j < link_count ; j++){
-                    if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && ny == links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && ny == links[j].a.y))){
-                        has_link = 1;
-                        break;
-                    }
-                    if(has_link){
-                        if(traverse_black(matrix,visited_matrix,nx,ny)){
-                            return 1;
-                        }
+    for(int i = 0 ; i < 8 ; i++){
+        int nx = x + knight_moves[i][0];
+        int ny = y + knight_moves[i][1];
+        if(nx >= 0 && ny >= 0 && nx < n && ny < n && visited_matrix[nx][ny] == 0 && matrix[nx][ny]=='B'){
+            int has_link = 0;
+            for(int j = 0 ; j < link_count ; j++){
+                if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && ny == links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && ny == links[j].a.y))){
+                    has_link = 1;
+                    // break;
+                }
+                if(has_link){
+                    if(traverse_black(matrix,visited_matrix,nx,ny)){
+                        return 1;
                     }
                 }
             }
         }
-        return 0;
     }
+    return 0;
 }
 
 int red_has_path(char matrix[n][n], int visited_matrix_red[n][n]){

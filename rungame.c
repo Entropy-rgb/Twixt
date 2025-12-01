@@ -52,7 +52,8 @@ int move_validity(char matrix[n][n], int x, int y , int player){
 
 void rungame(char matrix[n][n], char player1[50], char player2[50])
 {
-    while (win(matrix) == 0)
+    int winner;
+    while (winner = win(matrix) == 0)
     {   int r_x, r_y, b_x, b_y;
         int prev_move_validity = 1;
         do{
@@ -69,7 +70,7 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
         } while (prev_move_validity == 0);
         matrix[r_x][r_y] = 'R';
         make_link_if_Possible(matrix,r_x,r_y,1);
-        if(win(matrix)!=0){
+        if(winner = win(matrix)!=0){
             break;
         }
         prev_move_validity = 1;
@@ -90,11 +91,11 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
         matrix[b_x][b_y] = 'B';
         make_link_if_Possible(matrix,b_x,b_y,2);
     }
-    if (win(matrix) == 1)
+    if (winner == 1)
     {
         printf("%sCongratulations, Player %s won with %s side\n%s",CYAN, player1, "RED(R)",WHITE);
     }
-    else if (win(matrix) == 2)
+    else if (winner == 2)
     {
         printf("%sCongratulations, Player %s won with %s side\n%s",CYAN, player2, "BLACK(B)",WHITE);
     }
