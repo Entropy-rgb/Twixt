@@ -40,13 +40,17 @@ int main()
         printf("%sTo quit the Game at any point of time just press Ctrl + C\n",RED);
         printf("%sPlease enter the Red(R) Player's name: %s",YELLOW,WHITE);
         fgets(player1, 50, stdin);
+        int length = strlen(player1);
+        player1[length-1] = '\0';
         printf("%sPlease enter the Black(B) Player's name: %s",YELLOW,WHITE);
         fgets(player2, 50 , stdin);
+        length = strlen(player2);
+        player2[length-1] = '\0';
         printf("%s",RESET);
         rungame(matrix, player1, player2);
         printf("%s===================Thanks for Playing========================\n%s",YELLOW,RESET);
         printf("%sTo Play The Game Again press 'r', else to quit Press 'q'%s\n",RED,RESET);
-        scanf("  %c", &game);
+        scanf("\n%c", &game);
         if (game == 'r')
         {
             continue;
@@ -57,7 +61,7 @@ int main()
         }
         else
         {
-            printf("You have entered an Invalid Input, this made the programmer Angry\nBye\n");
+            printf("%sYou have entered an Invalid Input, this made the programmer Angry\nBye\n%s",RED, RESET);
             break;
         }
     }

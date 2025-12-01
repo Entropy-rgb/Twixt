@@ -73,10 +73,10 @@ void rungame(char matrix[n][n], char player1[50], char player2[50])
     }
     if (win(matrix) == 1)
     {
-        printf("%sCongratulations, Player %s\b won with %s side\n%s",CYAN, player1, "RED(R)",WHITE);
+        printf("%sCongratulations, Player %s won with %s side\n%s",CYAN, player1, "RED(R)",WHITE);
     }
     else if (win(matrix) == 2)
     {
-        printf("%sCongratulations, Player %s\b won with %s side\n%s",CYAN, player2, "BLACK(B)",WHITE);
+        printf("%sCongratulations, Player %s won with %s side\n%s",CYAN, player2, "BLACK(B)",WHITE);
     }
 }
