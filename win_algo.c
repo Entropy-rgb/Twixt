@@ -22,7 +22,7 @@ int traverse_red(char matrix[22][22] , int visited_matrix[22][22], int x , int y
             int ny = y + knight_moves[i][1];
             if(nx >= 0 && ny >= 0 && nx < 22 && ny < 22 && visited_matrix[nx][ny] == 0 && matrix[nx][ny] == 'R'){
                 for(int j = 0 ; j < link_count ; j++){
-                    if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && links[j].a.y))){
+                    if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && ny==links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && ny == links[j].a.y))){
                         ans += traverse_red(matrix, visited_matrix, nx, ny);
                     }
                 }
@@ -47,8 +47,8 @@ int traverse_black(char matrix[22][22] , int visited_matrix[22][22], int x , int
             int ny = y + knight_moves[i][1];
             if(nx >= 0 && ny >= 0 && nx < 22 && ny < 22 && visited_matrix[nx][ny] == 0 && matrix[nx][ny]=='B'){
                 for(int j = 0 ; j < link_count ; j++){
-                    if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && links[j].a.y))){
-                        ans += traverse_red(matrix, visited_matrix, nx, ny);
+                    if(((x==links[j].a.x && y == links[j].a.y && nx == links[j].b.x && ny == links[j].b.y) || (x == links[j].b.x && y == links[j].b.y && nx == links[j].a.x && ny == links[j].a.y))){
+                        ans += traverse_black(matrix, visited_matrix, nx, ny);
                     }
                 }
             }
